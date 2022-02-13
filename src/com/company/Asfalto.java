@@ -1,11 +1,10 @@
 package com.company;
 
-import java.util.Arrays;
-
 public class Asfalto extends Via{
     private String asfaltoProvedoor;
     private int velocidadMax;
     private boolean adelantar;
+    private final double ESPESOR = 0.25;
 
     public Asfalto(String asfaltoProvedoor, int velocidadMax, boolean adelantar) {
         super();
@@ -16,6 +15,6 @@ public class Asfalto extends Via{
 
     @Override
     public double volumen() {
-        return area() * 0.25;
+        return ESPESOR * area();
     }
 }
