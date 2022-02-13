@@ -9,27 +9,66 @@ public class Carretera {
         return camino;
     }
 
-    public double longitudTotal(){
-        return 1;
+    public int longitudTotal(){
+        double sumaLongitud = 0;
+        for (Via viaActual: camino){
+            sumaLongitud+= viaActual.longitud();
+        }
+        return (int)sumaLongitud;
     }
 
-    public double areaTotal(){
-        return 1;
+    public int areaTotal(){
+        double sumaArea = 0;
+        for (Via viaActual: camino) {
+            sumaArea+= viaActual.area();
+        }
+        return (int)sumaArea;
     }
 
     public double volumenMaterial(){
-        return 1;
+        double sumaVolumen =0;
+        for (Via viaActual : camino) {
+            sumaVolumen+= viaActual.volumen();
+        }
+        return sumaVolumen;
     }
 
     public double volumenAsfalto(){
-        return 1;
+        double sumaVolumen =0;
+        for (Via viaActual : camino) {
+            if( viaActual instanceof Asfalto){
+                sumaVolumen += viaActual.volumen();
+            }
+        }
+        return sumaVolumen;
     }
 
     public double volumenNoAsfalto(){
-        return 1;
+        double sumaVolumen =0;
+        for (Via viaActual : camino) {
+            if( viaActual instanceof NoAsfalto){
+                sumaVolumen += viaActual.volumen();
+            }
+        }
+        return sumaVolumen;
     }
 
     public boolean conexionCamino(){
-        return true;
+        boolean conexion = true;
+
+        for (Via viaActual: camino) {
+            int indexActual = camino.indexOf(viaActual);
+            if(indexActual !=0){
+              if(camino.get(indexActual-1).coordenadasFinales != viaActual.coordenadasIniciales ){
+                  return false;
+              }
+            }
+        }
+
+        return conexion;
+    }
+
+    public void setCamino(Via via) {
+        camino.add(via);
     }
 }
