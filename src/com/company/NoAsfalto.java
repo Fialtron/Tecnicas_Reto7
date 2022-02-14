@@ -8,7 +8,9 @@ public class NoAsfalto extends Via{
     private double espesorCapa;
 
     public NoAsfalto(double[] coordenadasIniciales, double[] coordenadasFinales, String materialVia,double espesorCapa) {
-        super(coordenadasIniciales, coordenadasFinales, 6);
+       // super(coordenadasIniciales, coordenadasFinales, 6);
+        this.coordenadasIniciales = coordenadasIniciales;
+        this.coordenadasFinales = coordenadasFinales;
         this.espesorCapa = espesorCapa;
         this.materialVia = materialVia;
         this.ancho = 6;
@@ -30,7 +32,7 @@ public class NoAsfalto extends Via{
                 ", coordenadasFinales=" + Arrays.toString(coordenadasFinales) +
                 "materialVia='" + materialVia + '\'' +
                 ", espesorCapa=" + espesorCapa +
-                ", ancho=" + getAncho() +
+                ", ancho=" + this.ancho +
                 '}';
     }
 }
