@@ -59,7 +59,10 @@ public class Carretera {
         for (Via viaActual: camino) {
             int indexActual = camino.indexOf(viaActual);
             if(indexActual !=0){
-              if(camino.get(indexActual-1).coordenadasFinales != viaActual.coordenadasIniciales ){
+
+              if(camino.get(indexActual-1).coordenadasFinales[0] != viaActual.coordenadasIniciales[0] || camino.get(indexActual-1).coordenadasFinales[1] != viaActual.coordenadasIniciales[1]){
+                 // System.out.println("coordenadas finales: "+ camino.get(indexActual-1).coordenadasFinales[0] +" "+camino.get(indexActual-1).coordenadasFinales[1] );
+                 // System.out.println("coordenadas iniciales: "+ viaActual.coordenadasIniciales[0] +" "+viaActual.coordenadasIniciales[1]  );
                   return false;
               }
             }

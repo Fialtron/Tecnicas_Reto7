@@ -9,10 +9,13 @@ public class Asfalto extends Via{
     private final double ESPESOR = 0.25;
 
     public Asfalto(double[] coordenadasIniciales, double[] coordenadasFinales, String asfaltoProvedoor, int velocidadMax, boolean adelantar) {
-        super(coordenadasIniciales, coordenadasFinales, 8);
+      //  super(coordenadasIniciales, coordenadasFinales, 8);
+        this.coordenadasIniciales = coordenadasIniciales;
+        this.coordenadasFinales = coordenadasFinales;
         this.asfaltoProvedoor = asfaltoProvedoor;
         this.velocidadMax = velocidadMax;
         this.adelantar = adelantar;
+        this.ancho = 8;
     }
 
     @Override
@@ -28,7 +31,7 @@ public class Asfalto extends Via{
                 "AsfaltoProvedoor='" + asfaltoProvedoor + '\'' +
                 ", velocidadMaxima=" + velocidadMax +
                 ", PermitidoAdelanter=" + adelantar +
-                ", Ancho=" + getAncho() +
+                ", Ancho=" + this.ancho+
                 '}';
     }
 }
